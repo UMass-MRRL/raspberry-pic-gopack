@@ -1,7 +1,9 @@
 # RaspberryPIC GoPack
 
 The GoPack is a universal control/driver pack meant for rapid prototyping of mechatronic systems. 
-It houses a Raspberry Pi Version 2 B, 16 bit PIC microcontroller, and has various analog and digital inputs and outputs. Programming the GoPack is done in MATLAB Simulink version 2015b, and sent wirelessly through the WLAN to the PI.
+It houses a Raspberry Pi Version 2 B, 16 bit PIC microcontroller, and has various analog and digital inputs and outputs. Programming the GoPack is done in MATLAB Simulink version 2015b, and sent wirelessly through the WLAN to the Raspberry Pi.
+
+Last updated: 02/23/2017
 
 ## Raspberry Pi Setup: 
 
@@ -75,3 +77,16 @@ WiringPi will not work unless you add “-lwiringPi” to the linker flags in th
 `set_param(gcs,'PostCodeGenCommand','setBuildArgs(buildInfo)');`
 
 Make sure that setBuildArgs.m is included in the active directory. This file is included in the Simulink Scripting section of this repository.
+
+### 4) Using GoPack s-Functions to handle sensors and actuators
+Three Simulink s-Function blocks are provided to allow the Simulink model to access sensor readings and dictate actuator outputs. 
+
+The "inputs_to_SPI_bytes" block converts float or integer inputs into bytes for serial transfer. This primarily means motor duty cycle or voltage input. It also formats requests for readings from specific sensors.
+
+The "SPI" block simply performs an SPI transfer of the byte vector assembled by the previous block. The output is a byte vector of requested sensor readings, and loopback confirmation of the requested outputs.
+
+The "SPI_bytes_to_outputs" block converts the received byte vector into float or integer values for the requested sensor readings and looped-back outputs. Depending on the amount of samples the sensor is configured to perform per Simulink loop, outputs corresponding with each separate sensor reading can be a vector containing multiple samples. Filtering, chronological arrangement of this data, or averaging are left to the user to perform with standard Simulink blocks as needed.
+
+Note that a single sample delay function is required before the input to the serial transfer subsystem made up of these three blocks. The model will form an algebraic loop and will not run if the delay is not included.
+
+It is recommended to use the provided PID position control model for reference. This controller was successfully tested with a Maxon EC30 motor using an ESCON 50/5 motor driver.
