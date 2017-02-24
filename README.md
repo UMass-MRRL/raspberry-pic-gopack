@@ -102,4 +102,4 @@ The "SPI_bytes_to_outputs" block converts the received byte vector into float or
 
 Note that a single sample delay function is required before the input to the serial transfer subsystem made up of these three blocks. The model will form an algebraic loop and will not run if the delay is not included.
 
-It is recommended to use the provided PID position control model for reference. This controller was successfully tested with a Maxon EC30 motor using an ESCON 50/5 motor driver.
+It is recommended to use the provided PID position control model for reference. It uses encoder feedback (500 counts/turn) to drive a DC motor while logging data from 5 simultaneous analog inputs. This controller was successfully tested with a Maxon EC30 motor using an ESCON 50/5 motor driver.
