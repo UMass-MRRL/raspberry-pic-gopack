@@ -90,7 +90,7 @@ void init_clock(void)
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void)
 {
 	IFS0bits.T1IF = 0;
-    enc1pos = POS1CNT;
+    getEnc1Pos();
 	wait_flag = 1; //Signal end of sample time	
 	run_time++;
 } // end T1Interupt
@@ -406,7 +406,7 @@ void init_encoder1(void)
 	IEC3bits.QEI1IE = 1; // Enable DMA interrupt
 }
 
-extern int enc1revs;
+extern long int enc1revs;
 
 void __attribute__((interrupt, no_auto_psv)) _QEI1Interrupt(void)
 {

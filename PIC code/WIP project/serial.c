@@ -95,7 +95,7 @@ void RxData(unsigned int *RxBuff){
 
 }
 
-extern int absEnc1pos;
+extern long int absEnc1pos;
 void processRXdata(void){
     //MOT_D1 = 1;
     

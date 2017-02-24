@@ -27,7 +27,7 @@
 int fd, inputSize;
 # endif
 /* %%%-SFUNWIZ_wrapper_includes_Changes_END --- EDIT HERE TO _BEGIN */
-#define u_width 43
+#define u_width 54
 #define y_width 1
 /*
  * Create external references here.  
@@ -52,12 +52,12 @@ if(xD[0] == 1)
     #ifndef MATLAB_MEX_FILE
         // Read high byte, low byte, then combine:
     
-        unsigned char spiData[43];
+        unsigned char spiData[54];
         int n;
         
 //        inputSize = sizeof(write)/sizeof(write[0]);
         
-        for (n = 0; n < 43; n++){
+        for (n = 0; n < 54; n++){
             spiData[n] = write[n];
         }
         
@@ -79,15 +79,15 @@ if(xD[0] == 1)
 //        spiData [1] = 0x80 ;
 //        spiData [2] = 0 ;
         
-    	spi_test[0] = wiringPiSPIDataRW(0,spiData,43) ;
+    	spi_test[0] = wiringPiSPIDataRW(0,spiData,54) ;
         
-        for (n = 1; n < 43; n++){
+        for (n = 1; n < 54; n++){
             read[n-1] = spiData[n];
             //read[n+2] = spiData2[n];
             //read[n] = write[n];
         }
         //read[2] = spiData2[0];
-        read[42] = spiData[0];
+        read[53] = spiData[0];
 
         
 //        read[0] = ((spiData[1] << 8) | spiData[2]) & 0x3FF;
@@ -112,7 +112,7 @@ if(xD[0] != 1){
     # ifndef MATLAB_MEX_FILE     
         // Check that device is connected and setup:
         wiringPiSetup ();
-        fd = wiringPiSPISetup(0,1000000,1);
+        fd = wiringPiSPISetup(0,4000000,1);
 
     #endif
 //done with initialization

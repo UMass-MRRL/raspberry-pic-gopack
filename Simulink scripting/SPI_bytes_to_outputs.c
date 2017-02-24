@@ -25,7 +25,7 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
-* Created: Thu Dec  8 18:31:00 2016
+* Created: Thu Jan 26 13:02:19 2017
 */
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME SPI_bytes_to_outputs
@@ -34,7 +34,7 @@
 #define NUM_INPUTS          1
 /* Input Port  0 */
 #define IN_PORT_0_NAME      read
-#define INPUT_0_WIDTH       43
+#define INPUT_0_WIDTH       54
 #define INPUT_DIMS_0_COL    1
 #define INPUT_0_DTYPE       uint8_T
 #define INPUT_0_COMPLEX     COMPLEX_NO
@@ -50,7 +50,7 @@
 #define IN_0_BIAS            0
 #define IN_0_SLOPE           0.125
 
-#define NUM_OUTPUTS          6
+#define NUM_OUTPUTS          7
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      dutyCycle
 #define OUTPUT_0_WIDTH       1
@@ -71,7 +71,7 @@
 #define OUT_PORT_1_NAME      enc1count
 #define OUTPUT_1_WIDTH       1
 #define OUTPUT_DIMS_1_COL    1
-#define OUTPUT_1_DTYPE       int16_T
+#define OUTPUT_1_DTYPE       int32_T
 #define OUTPUT_1_COMPLEX     COMPLEX_NO
 #define OUT_1_FRAME_BASED    FRAME_NO
 #define OUT_1_BUS_BASED      0
@@ -132,7 +132,7 @@
 #define OUT_4_BIAS            0
 #define OUT_4_SLOPE           0.125
 /* Output Port  5 */
-#define OUT_PORT_5_NAME      analog6
+#define OUT_PORT_5_NAME      analog3
 #define OUTPUT_5_WIDTH       4
 #define OUTPUT_DIMS_5_COL    1
 #define OUTPUT_5_DTYPE       uint16_T
@@ -147,10 +147,26 @@
 #define OUT_5_FRACTIONLENGTH  3
 #define OUT_5_BIAS            0
 #define OUT_5_SLOPE           0.125
+/* Output Port  6 */
+#define OUT_PORT_6_NAME      analog6
+#define OUTPUT_6_WIDTH       4
+#define OUTPUT_DIMS_6_COL    1
+#define OUTPUT_6_DTYPE       real_T
+#define OUTPUT_6_COMPLEX     COMPLEX_NO
+#define OUT_6_FRAME_BASED    FRAME_NO
+#define OUT_6_BUS_BASED      0
+#define OUT_6_BUS_NAME       
+#define OUT_6_DIMS           1-D
+#define OUT_6_ISSIGNED        1
+#define OUT_6_WORDLENGTH      8
+#define OUT_6_FIXPOINTSCALING 1
+#define OUT_6_FRACTIONLENGTH  3
+#define OUT_6_BIAS            0
+#define OUT_6_SLOPE           0.125
 
 #define NPARAMS              0
 
-#define SAMPLE_TIME_0        0.001
+#define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      1
 #define DISC_STATES_IC       [0]
 #define NUM_CONT_STATES      0
@@ -170,19 +186,21 @@
 
 extern void SPI_bytes_to_outputs_Outputs_wrapper(const uint8_T *read,
 			real_T *dutyCycle,
-			int16_T *enc1count,
+			int32_T *enc1count,
 			uint16_T *analog0,
 			uint16_T *analog1,
 			uint16_T *analog2,
-			uint16_T *analog6,
+			uint16_T *analog3,
+			real_T *analog6,
 			const real_T *xD);
 extern void SPI_bytes_to_outputs_Update_wrapper(const uint8_T *read,
 			const real_T *dutyCycle,
-			const int16_T *enc1count,
+			const int32_T *enc1count,
 			const uint16_T *analog0,
 			const uint16_T *analog1,
 			const uint16_T *analog2,
-			const uint16_T *analog6,
+			const uint16_T *analog3,
+			const real_T *analog6,
 			real_T *xD);
 
 /*====================*
@@ -221,7 +239,7 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortComplexSignal(S, 0, OUTPUT_0_COMPLEX);
     /* Output Port 1 */
     ssSetOutputPortWidth(S, 1, OUTPUT_1_WIDTH);
-    ssSetOutputPortDataType(S, 1, SS_INT16);
+    ssSetOutputPortDataType(S, 1, SS_INT32);
     ssSetOutputPortComplexSignal(S, 1, OUTPUT_1_COMPLEX);
     /* Output Port 2 */
     ssSetOutputPortWidth(S, 2, OUTPUT_2_WIDTH);
@@ -239,6 +257,10 @@ static void mdlInitializeSizes(SimStruct *S)
     ssSetOutputPortWidth(S, 5, OUTPUT_5_WIDTH);
     ssSetOutputPortDataType(S, 5, SS_UINT16);
     ssSetOutputPortComplexSignal(S, 5, OUTPUT_5_COMPLEX);
+    /* Output Port 6 */
+    ssSetOutputPortWidth(S, 6, OUTPUT_6_WIDTH);
+    ssSetOutputPortDataType(S, 6, SS_DOUBLE);
+    ssSetOutputPortComplexSignal(S, 6, OUTPUT_6_COMPLEX);
 
     ssSetNumSampleTimes(S, 1);
     ssSetNumRWork(S, 0);
@@ -352,14 +374,15 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 {
     const uint8_T   *read  = (const uint8_T*) ssGetInputPortSignal(S,0);
     real_T        *dutyCycle  = (real_T *)ssGetOutputPortRealSignal(S,0);
-    int16_T        *enc1count  = (int16_T *)ssGetOutputPortRealSignal(S,1);
+    int32_T        *enc1count  = (int32_T *)ssGetOutputPortRealSignal(S,1);
     uint16_T        *analog0  = (uint16_T *)ssGetOutputPortRealSignal(S,2);
     uint16_T        *analog1  = (uint16_T *)ssGetOutputPortRealSignal(S,3);
     uint16_T        *analog2  = (uint16_T *)ssGetOutputPortRealSignal(S,4);
-    uint16_T        *analog6  = (uint16_T *)ssGetOutputPortRealSignal(S,5);
+    uint16_T        *analog3  = (uint16_T *)ssGetOutputPortRealSignal(S,5);
+    real_T        *analog6  = (real_T *)ssGetOutputPortRealSignal(S,6);
     const real_T   *xD = ssGetDiscStates(S);
 
-    SPI_bytes_to_outputs_Outputs_wrapper(read, dutyCycle, enc1count, analog0, analog1, analog2, analog6, xD);
+    SPI_bytes_to_outputs_Outputs_wrapper(read, dutyCycle, enc1count, analog0, analog1, analog2, analog3, analog6, xD);
 
 }
 #define MDL_UPDATE  /* Change to #undef to remove function */
@@ -375,13 +398,14 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     real_T         *xD  = ssGetDiscStates(S);
     const uint8_T   *read  = (const uint8_T*) ssGetInputPortSignal(S,0);
     real_T        *dutyCycle  = (real_T *)ssGetOutputPortRealSignal(S,0);
-    int16_T        *enc1count  = (int16_T *)ssGetOutputPortRealSignal(S,1);
+    int32_T        *enc1count  = (int32_T *)ssGetOutputPortRealSignal(S,1);
     uint16_T        *analog0  = (uint16_T *)ssGetOutputPortRealSignal(S,2);
     uint16_T        *analog1  = (uint16_T *)ssGetOutputPortRealSignal(S,3);
     uint16_T        *analog2  = (uint16_T *)ssGetOutputPortRealSignal(S,4);
-    uint16_T        *analog6  = (uint16_T *)ssGetOutputPortRealSignal(S,5);
+    uint16_T        *analog3  = (uint16_T *)ssGetOutputPortRealSignal(S,5);
+    real_T        *analog6  = (real_T *)ssGetOutputPortRealSignal(S,6);
 
-    SPI_bytes_to_outputs_Update_wrapper(read, dutyCycle, enc1count, analog0, analog1, analog2, analog6,  xD);
+    SPI_bytes_to_outputs_Update_wrapper(read, dutyCycle, enc1count, analog0, analog1, analog2, analog3, analog6,  xD);
 }
 
 

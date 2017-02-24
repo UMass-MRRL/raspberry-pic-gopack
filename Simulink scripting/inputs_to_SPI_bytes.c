@@ -25,7 +25,7 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
-* Created: Thu Dec  8 18:31:14 2016
+* Created: Wed Feb  8 18:28:29 2017
 */
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME inputs_to_SPI_bytes
@@ -53,7 +53,7 @@
 #define NUM_OUTPUTS          1
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      write
-#define OUTPUT_0_WIDTH       43
+#define OUTPUT_0_WIDTH       54
 #define OUTPUT_DIMS_0_COL    1
 #define OUTPUT_0_DTYPE       uint8_T
 #define OUTPUT_0_COMPLEX     COMPLEX_NO

@@ -56,20 +56,20 @@ float getEnc1PosDeg(void){
 }
 
 int oldEnc1pos = 0;
-int temp;
+long int temp;
 long int enc1pos = 0;
-int absEnc1pos = 0;
-int enc1revs = 0;
+long int absEnc1pos = 0;
+long int enc1revs = 0;
 void getEnc1Pos(void){
-//    enc1pos = POS1CNT; // 360degrees = 2048 counts
+    enc1pos = POS1CNT; // 360degrees = 2048 counts
 //    int diff = enc1pos - oldEnc1pos;
 //    if(abs(diff) > 1000){ 
 //        enc1revs = enc1revs - fsign(diff);
 //    }
-    temp = enc1pos + (ENC1_RES*enc1revs);
+    temp = (ENC1_RES*enc1revs);
 //    if (temp < 0)
 //        temp = 0;
-    absEnc1pos = temp;
+    absEnc1pos = enc1pos + temp;
     oldEnc1pos = enc1pos;
     
 }

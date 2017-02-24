@@ -25,7 +25,7 @@
   *  -------------------------------------------------------------------------
   * | See matlabroot/simulink/src/sfuntmpl_doc.c for a more detailed template |
   *  ------------------------------------------------------------------------- 
-* Created: Thu Dec  8 16:36:16 2016
+* Created: Thu Jan 26 13:02:13 2017
 */
 #define S_FUNCTION_LEVEL 2
 #define S_FUNCTION_NAME SPI
@@ -34,7 +34,7 @@
 #define NUM_INPUTS          1
 /* Input Port  0 */
 #define IN_PORT_0_NAME      write
-#define INPUT_0_WIDTH       43
+#define INPUT_0_WIDTH       54
 #define INPUT_DIMS_0_COL    1
 #define INPUT_0_DTYPE       uint8_T
 #define INPUT_0_COMPLEX     COMPLEX_NO
@@ -53,7 +53,7 @@
 #define NUM_OUTPUTS          2
 /* Output Port  0 */
 #define OUT_PORT_0_NAME      read
-#define OUTPUT_0_WIDTH       43
+#define OUTPUT_0_WIDTH       54
 #define OUTPUT_DIMS_0_COL    1
 #define OUTPUT_0_DTYPE       uint8_T
 #define OUTPUT_0_COMPLEX     COMPLEX_NO
@@ -86,7 +86,7 @@
 
 #define NPARAMS              0
 
-#define SAMPLE_TIME_0        0.001
+#define SAMPLE_TIME_0        INHERITED_SAMPLE_TIME
 #define NUM_DISC_STATES      1
 #define DISC_STATES_IC       [0]
 #define NUM_CONT_STATES      0

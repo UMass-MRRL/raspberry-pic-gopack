@@ -43,38 +43,41 @@ if(xD[0] == 1)
         write[0] = 0x01;
         write[1] = 0x00;
         write[2] = 0x00;
+        write[3] = 0x00;
+        write[4] = 0x00;
         unsigned int placeholder;
         
         // convert duty cycle to 16 bit int
+        //placeholder = (unsigned int)(655.35*(dutyCycle[0]));
         placeholder = (unsigned int)(3276.75*(dutyCycle[0]+10));
-        
         //write[2] = 0x02;
         //write[3] = 0x33;
         
-        write[3] = 0x02;
-        write[4] = (placeholder & 0x00ff);
-        write[5] = (placeholder & 0xff00) >> 8;
+        write[5] = 0x02;
+        write[6] = (placeholder & 0x00ff);
+        write[7] = (placeholder & 0xff00) >> 8;
       //  write[3] = (placeholder & 0xff0)>>4;
         //duty_cycle_int[0] = placeholder;
         
         // Request analog channels 0,1,2,6
         int n;
         int m;
-        int anTag[4];
+        int anTag[5];
         anTag[0] = 0x10;
         anTag[1] = 0x11;
         anTag[2] = 0x12;
-        anTag[3] = 0x16;
+        anTag[3] = 0x13;
+        anTag[4] = 0x16;
         
-        for(n = 0; n < 4; n++){
-            write[6 + n*9] = anTag[n];
+        for(n = 0; n < 5; n++){
+            write[8 + n*9] = anTag[n];
             for(m = 1; m<8; m++){
-                write[(9*n)+m+6] = 0;
+                write[(9*n)+m+8] = 0;
             }
         }
         
         // End message byte
-        write[42] = 0xF0;
+        write[53] = 0xF0;
         
     #endif
 }
