@@ -1,7 +1,9 @@
 # RaspberryPIC GoPack
 
 The GoPack is a universal control/driver pack meant for rapid prototyping of mechatronic systems. 
-It houses a Raspberry Pi Version 2 B, 16 bit PIC microcontroller, and has various analog and digital inputs and outputs. Programming the GoPack is done in MATLAB Simulink version 2015b, and sent wirelessly through the WLAN to the Raspberry Pi.
+It houses a **Raspberry Pi Version 2 Model B**, 16 bit dsPIC33F microcontroller, and has various analog and digital inputs and outputs. Programming the GoPack is done in **MATLAB Simulink version 2015b**, and sent wirelessly through the WLAN to the Raspberry Pi.
+
+Note: Currently does not work for MATLAB versions 2016a and later due to changes in the Simulink build format. 
 
 Last updated: 02/23/2017
 
@@ -51,6 +53,17 @@ When connected with SSH via Putty, type this to shut down safely.
 
 Click OK when Putty gives a fatal error, it thinks the connection has failed. Close Putty. 
 
+## Interfacing the Raspberry Pi with the GoPack add-on board
+
+### 1) Initializing the GoPack board
+The GoPack board runs on a dsPIC33F microcontroller. A set of pins is provided for programming and debugging the microcontroller should you wish to modify the firmware. For the initial setup, ensure that the board is receiving power. 
+
+**Note: Do not supply power through the GoPack terminals and the micro-USB connector on the Raspberry Pi at the same time.** The current iteration of the board does not have back-current protections should these 5V levels be slightly different.
+
+With the board powered up, flash the microcontroller with the provided files using a PICkit3 or similar device. You can build, edit, and download this project to the hardware from within MPLAB, or program it directly with the provided .hex files. A bright red status LED should come on if the microcontroller is running successfully.
+
+### 2) Interfacing with the Raspberry Pi
+The only physical assembly required is mating the 40 pin male connector on the Raspberry Pi with the GoPack 40-pin female connector. The boards should stack directly on top of each other. The Raspberry Pi will receive power through this connection from the GoPack board. It is recommended to use standoffs between the boards to support the cantilevered end.
 
 ## Using GoPack with MATLAB and Simulink
 
