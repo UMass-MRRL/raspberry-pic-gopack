@@ -4354,14 +4354,14 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="JP3" pad="5"/>
 <contactref element="JP3" pad="7"/>
 <polygon width="0.254" layer="1">
-<vertex x="27.6" y="51.5"/>
-<vertex x="27.6" y="48.5"/>
-<vertex x="27.1" y="48"/>
+<vertex x="27.8" y="51.5"/>
+<vertex x="27.8" y="48.5"/>
+<vertex x="27.4" y="48"/>
 <vertex x="18.3" y="48"/>
 <vertex x="17.8" y="48.5"/>
 <vertex x="17.8" y="51.4"/>
 <vertex x="18.3" y="51.9"/>
-<vertex x="27.2" y="51.9"/>
+<vertex x="27.4" y="51.9"/>
 </polygon>
 <via x="20" y="47.5" extent="1-16" drill="0.4" alwaysstop="yes"/>
 </signal>
@@ -4597,13 +4597,13 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="JP3" pad="13"/>
 <contactref element="JP3" pad="15"/>
 <polygon width="0.254" layer="1">
-<vertex x="28.8" y="51.9"/>
-<vertex x="37.4" y="51.9"/>
-<vertex x="37.7" y="51.6"/>
-<vertex x="37.7" y="48"/>
-<vertex x="28.9" y="48"/>
-<vertex x="28.4" y="48.5"/>
-<vertex x="28.4" y="51.5"/>
+<vertex x="28.6" y="51.9"/>
+<vertex x="37.6" y="51.9"/>
+<vertex x="37.9" y="51.6"/>
+<vertex x="37.9" y="48"/>
+<vertex x="28.8" y="48"/>
+<vertex x="28.2" y="48.5"/>
+<vertex x="28.2" y="51.5"/>
 </polygon>
 <via x="31" y="47.5" extent="1-16" drill="0.4" alwaysstop="yes"/>
 </signal>
@@ -5069,14 +5069,14 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="JP3" pad="17"/>
 <contactref element="JP3" pad="19"/>
 <polygon width="0.254" layer="1">
-<vertex x="39" y="51.9"/>
+<vertex x="38.8" y="51.9"/>
 <vertex x="42.7" y="51.9"/>
 <vertex x="43.2" y="51.4"/>
 <vertex x="43.2" y="49.8"/>
 <vertex x="42.7" y="49.3"/>
-<vertex x="39.1" y="49.3"/>
-<vertex x="38.5" y="49.9"/>
-<vertex x="38.5" y="51.4"/>
+<vertex x="38.9" y="49.3"/>
+<vertex x="38.3" y="49.9"/>
+<vertex x="38.3" y="51.4"/>
 </polygon>
 <wire x1="41.93" y1="50.63" x2="42.63" y2="50.63" width="1.016" layer="16"/>
 <wire x1="42.63" y1="50.63" x2="44" y2="52" width="1.016" layer="16"/>
