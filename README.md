@@ -10,7 +10,7 @@ Last updated: 02/23/2017
 ## Raspberry Pi Setup: 
 
 ### 1) Installing support packages: (for starting from scratch)
-The RaspberryPi boots off of an SD card with the MATLAB Support Package and operating system installed.  The MATLAB support packages and are downloaded in MATLAB, and written to the PI with a USB SD reader/writer. All remaining programming is done over wifi. The package can be found in MATLAB under Add-Ons drop-down. Choose install from internet, choose Raspberry Pi, check all packages available for Pi, and follow the instructions. You will be guided to install your micro SD card in the USB card reader, and install the Rapberry Pi OS “Raspbian” with Matlab support packages for the appropriate Pi model. GoPack V1.0 uses Pi 2 Model B. 
+The RaspberryPi boots off of an SD card with the MATLAB Support Package and operating system installed.  The MATLAB support packages and are downloaded in MATLAB, and written to the Pi with a USB SD reader/writer. All remaining programming is done over wifi. The package can be found in MATLAB under Add-Ons drop-down. Choose install from internet, choose Raspberry Pi, check all packages available for Pi, and follow the instructions. You will be guided to install your micro SD card in the USB card reader, and install the Rapberry Pi OS “Raspbian” with Matlab support packages for the appropriate Pi model. The latest version of GoPack uses Pi 2 Model B. 
 .  
 ### 2) Booting the Pi up:
 Before booting the GoPack, install the SD card that you installed the Raspbian OS on connect any USB peripherals that will be needed before booting so that the RaspberryPi recognizes them. Boot the Pi by plugging in a micro USB power source.
@@ -67,13 +67,7 @@ The only physical assembly required is mating the 40 pin male connector on the R
 
 ## Using GoPack with MATLAB and Simulink
 
-### 1) Install support package
-In Matlab, find the Raspberry Pi support package by selecting "Get Hardware Support Packages" from the Add-Ons block on the ribbon in the main console. If downloaded separately, select the download folder for the "Download from Folder" option. Otherwise, find the "Simulink Support Package for Raspberry Pi Hardware" option and follow the instructions to download and install. You will need a micro-SD card reader for the PC with Simulink.
-
-It is recommended that you familiarize yourself with the basics:
-http://www.mathworks.com/help/supportpkg/raspberrypi/examples/getting-started-with-raspberry-pi-hardware.html
-
-### 2) Configure Simulink to run models on Raspberry Pi hardware
+### 1) Configure Simulink to run models on Raspberry Pi hardware
 For Simulink to run models on the Raspberry Pi, it must be configured to run on external hardware. Enter the "Configuration Parameters" dialog and locate the "Hardware Implementation" tab. "Raspberry Pi" should be available on the "Hardware board" dropdown menu. Set the IP address for the Host name, supply the username and password for the Raspberry Pi, and set the Build directory to "/home/pi".
 
 In the Solver tab, set the Solver options to discrete and fixed-step. Set the desired control loop sample time in the "Fixed step size (fundamental sample time)" field in seconds. (i.e. input a value of 0.001 for a 1 ms sample time).
@@ -92,6 +86,9 @@ WiringPi will not work unless you add “-lwiringPi” to the linker flags in th
 Make sure that setBuildArgs.m is included in the active directory. This file is included in the Simulink Scripting section of this repository.
 
 ### 4) Using GoPack s-Functions to handle sensors and actuators
+It is recommended that you familiarize yourself with the basics:
+http://www.mathworks.com/help/supportpkg/raspberrypi/examples/getting-started-with-raspberry-pi-hardware.html
+
 Three Simulink s-Function blocks are provided to allow the Simulink model to access sensor readings and dictate actuator outputs. 
 
 The "inputs_to_SPI_bytes" block converts float or integer inputs into bytes for serial transfer. This primarily means motor duty cycle or voltage input. It also formats requests for readings from specific sensors.
