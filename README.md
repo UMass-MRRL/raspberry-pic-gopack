@@ -3,6 +3,8 @@
 The GoPack is a universal control/driver pack meant for rapid prototyping of mechatronic systems. 
 It houses a **Raspberry Pi Version 2 Model B**, 16 bit dsPIC33F microcontroller, and has various analog and digital inputs and outputs. Programming the GoPack is done in **MATLAB Simulink version 2015b**, and sent wirelessly through the WLAN to the Raspberry Pi.
 
+Note: Currently does not work for MATLAB versions 2016a and later due to changes in the Simulink build format. 
+
 Last updated: 02/23/2017
 
 ## Raspberry Pi Setup: 
