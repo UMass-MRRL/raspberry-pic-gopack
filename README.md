@@ -16,7 +16,7 @@ The RaspberryPi boots off of an SD card with the MATLAB Support Package and oper
 Before booting the GoPack, install the SD card that you installed the Raspbian OS on connect any USB peripherals that will be needed before booting so that the RaspberryPi recognizes them. Boot the Pi by plugging in a micro USB power source.
 
 ### 3) WLAN setup: 
-The easiest way to set up a WLAN on campus is to use a router connected to the PC used for MATLAB. You must boot the RaspberryPi with a mouse, keyboard, WIFI dongle and HDMI monitor to set up the WLAN to connect automatically. Have the PC hosting MATLAB connected to the router, and the router to the main ethernet. In the Pi Rasbian OS, select Menu>Preferences>Wifi Configuration. Here you setup your network. Scan for Networks and choose the WLAN that the main PC is connected to. Double click, enter the password security key and click Add then close the scan window. In wpa_gui click connect. It should connect at this time. Make note of the following: SSID, BSSID, and IP address.
+The easiest way to set up a WLAN is to use a router connected to the PC used for MATLAB. You must boot the RaspberryPi with a mouse, keyboard, WIFI dongle and HDMI monitor to set up the WLAN to connect automatically. Have the PC hosting MATLAB connected to the router, and the router to the main ethernet. In the Pi Rasbian OS, select Menu>Preferences>Wifi Configuration. Here you setup your network. Scan for Networks and choose the WLAN that the main PC is connected to. Double click, enter the password security key and click Add then close the scan window. In wpa_gui click connect. It should connect at this time. Make note of the following: SSID, BSSID, and IP address.
 
 Once the connection is setup, the following boot ups are done with only the peripherals needed, and it should connect to the WLAN automatically. For the GoPack, all you need is the wifi dongle. Now shutdown the Pi by going to Menu. When the green light on the PI stops flashing, unplug the keyboard and monitor, and reboot by disconnecting and connecting the micro USB power source. 
 
@@ -37,13 +37,8 @@ If any errors happen, reinstall raspbian through MATLAB for the most updated cop
 
 Note: If you download wiringPi from its original source (git://git.drogon.net/wiringPi), that’s the wrong version. If updating wiringPi, type:
 ```
-cd wiringPi
+cd wiringPi-GoPack
 git pull origin
-```
-Now build and install wiringPi:
-```
-cd wiringPi
-./build
 ```
 
 Shutting the Pi down:
