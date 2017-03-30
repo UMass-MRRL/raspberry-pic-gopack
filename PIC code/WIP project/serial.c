@@ -16,8 +16,6 @@ extern int wait_flag;		// signals end of 1 millisecond sample period
 extern int spi1_flag;		//Flag for SPI transmission
 extern int spi2_flag;
 extern int hallErrorFlag;
-extern int alpha;
-extern int vg;
 
 extern int enc1pos;
 extern unsigned int pwm1_duty_16bit;
@@ -201,65 +199,11 @@ void processRXdata(void){
 //
 //        }
 //    }
-    //MOT_D1 = 0;
 }
 
 /*
 void receiveSPImsg(void){
 	dataIn =  SPI1BUF;
 	SPI1BUF = dataIn;
-}
-*/
-//////////////////////////////////////////////////////////////////////////////
-// UART functions
-//////////////////////////////////////////////////////////////////////////////
-
-
-/*
-
- // printDMA - Transmits the DMA output buffer to the table via wired UART.
-
-void printDMA(void){
-	DMA0CONbits.CHEN = 1; // Enable DMA0 Channel
- 	DMA0REQbits.FORCE = 1; // Manual mode: Kick-start the 1st transfer
-}
-
-
-// UARTreceiveDMA - Reads the DMA UART input buffer. Sets a flag if the transmission is 
-// identical to the last received transmission (no new Playsurface IR camera information).
-
-void UARTreceiveDMA(void){
-	int i = 0;
-	
-	while (i<17){
-		if(lastTransmit[i] != BufferB[i]){
-			sameFlag = 0;
-			tableData[i] = BufferB[i] & 0x00FF;
-			lastTransmit[i] = BufferB[i] & 0x00FF;
-		}
-		i++;
-	}
-}
-
-
-
-// UARTdecode_relative_bytes - Parses and assigns received bytes to internal variables. 
-// For relative-to-obstacle coordinate system.
-
-void UARTdecode_relative_bytes(void)
-{
-	appSelector = tableData[0];		// Table tells robot what mode to run in (solid obstacles vs pure path follow)
-	pErr = (float)(tableData[1] | (tableData[2] << 8))/1000;
-	velPar = (float)(tableData[3] | (tableData[4] << 8))/1000;
-	velPerp = (float)(tableData[5] | (tableData[6] << 8))/1000;
-	bodyTerr = (float)(tableData[7] | (tableData[8] << 8))/182;
-	objectCompliance = (float)(tableData[9] | (tableData[10] << 8))/100;
-	M = (float)(tableData[11] | (tableData[12] << 8))/100;
-	dampRatio = (float)(tableData[13] | (tableData[14] << 8))/1000;
-	objectCurvature = (float)(tableData[15] | (tableData[16] << 8))/(100);
-
-	M = M*0.00259; // convert mass from lbm to lbf*s^2/in
-	if (M > 0 && objectCompliance > 0) b = dampRatio*2*sqrt(objectCompliance*M);
-	else b = 0;
 }
 */

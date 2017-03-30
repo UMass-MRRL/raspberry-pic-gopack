@@ -23,7 +23,7 @@ Comments:  Support file for definitions and function prototypes
 #define SAMP_BUFF_SIZE 4            // # of samples to hold for each AN pin
 #define ENC1_RES 2000               // # pulses x 4 (quadrature)
 #define ENC2_RES 2048
-#define RASPI_BUF_SIZE 54            // Bytes in DMA buffer for SPI communication with Raspberry Pi
+#define RASPI_BUF_SIZE 2000            // Bytes in DMA buffer for SPI communication with Raspberry Pi
 
 // Initialization Functions
 void init_clock(void);

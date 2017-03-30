@@ -24,34 +24,13 @@ long int run_time = 0;			// 1 msec increments, resets at 2^16 msec
 float period;
 int wait_flag = 0;				// signal for end of sample time
 float samp_time = 1; 			// milliseconds
+
+// PWM output variables
 float p;
 int pwm1_duty_12bit;
 int pwm1_duty;
 int pwm2_duty;
-int num_ADC;
 extern short oc1flag;
-
-// Hall Effect Sensor variables (force, ang position)
-float steeringAngle;
-float fMag;
-float fAngle;
-double xDisp;
-double yDisp;
-double forceX;
-double forceY;
-int Bx;
-int By;
-int Bz;
-int vg;
-unsigned int zVal;
-unsigned int xVal;
-unsigned int yVal;
-unsigned int alpha;
-float k;
-int hallErrorFlag;
-
-int pwm1_duty;
-int pwm2_duty;
 unsigned int pwm1_duty_16bit;
 
 // Encoder variables
@@ -127,4 +106,3 @@ while(1)
 }
 return 0;
 } // end main
-
