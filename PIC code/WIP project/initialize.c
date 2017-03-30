@@ -1,6 +1,6 @@
 /*******************************************************
 Name: initialize.c
-Date: 5/9/2016
+Date: 03/30/2017
 Authors: Mark Price
 Comments: Initialization functions for timers and peripherals
 *******************************************************/

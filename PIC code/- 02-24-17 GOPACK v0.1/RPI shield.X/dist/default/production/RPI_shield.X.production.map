@@ -128,14 +128,14 @@ section                    address      alignment gaps    total length  (dec)
 .ndata                       0x8a8                   0             0x4  (4)
 .data                        0x8ac                   0           0x200  (512)
 .bss                         0xaac                   0            0xd8  (216)
-_034CDD20589b86f7           0x2500                   0            0x48  (72)
+_0342DD2058dd7dc2           0x2500                   0            0x48  (72)
 .bss                        0x2548                   0            0x12  (18)
-_034CDB40589b86f7           0x25c0                   0            0x48  (72)
+_0342DB4058dd7dc2           0x25c0                   0            0x48  (72)
 .bss                        0x2608                   0            0x48  (72)
-_034CD900589b86f7           0x2650                   0            0x6c  (108)
-_034CD7E0589b86f7           0x26bc                   0            0x6c  (108)
-_034CD6C0589b86f7           0x2728                   0            0x6c  (108)
-_034CD5A0589b86f7           0x2794                   0            0x6c  (108)
+_0342D90058dd7dc2           0x2650                   0            0x6c  (108)
+_0342D7E058dd7dc2           0x26bc                   0            0x6c  (108)
+_0342D6C058dd7dc2           0x2728                   0            0x6c  (108)
+_0342D5A058dd7dc2           0x2794                   0            0x6c  (108)
 
                  Total data memory used (bytes):          0x61e  (1566) 19%
 
@@ -656,14 +656,14 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x5da3
+.debug_info       0x000000       0x5d34
  *(.debug_info)
- .debug_info      0x000000        0x152 build/default/production/_ext/1472/controllers.o
- .debug_info      0x000152       0x3bff build/default/production/_ext/1472/initialize.o
- .debug_info      0x003d51        0x941 build/default/production/_ext/1472/main.o
- .debug_info      0x004692        0x4f0 build/default/production/_ext/1472/sensors.o
- .debug_info      0x004b82        0x485 build/default/production/_ext/1472/serial.o
- .debug_info      0x005007        0xd9c build/default/production/_ext/1472/MLX90363.o
+ .debug_info      0x000000        0x147 build/default/production/_ext/1472/controllers.o
+ .debug_info      0x000147       0x3be5 build/default/production/_ext/1472/initialize.o
+ .debug_info      0x003d2c        0x936 build/default/production/_ext/1472/main.o
+ .debug_info      0x004662        0x4d6 build/default/production/_ext/1472/sensors.o
+ .debug_info      0x004b38        0x46b build/default/production/_ext/1472/serial.o
+ .debug_info      0x004fa3        0xd91 build/default/production/_ext/1472/MLX90363.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x68c
@@ -1710,39 +1710,39 @@ __c30_signature
  __c30_signature
                   0x0006ba          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libpic30-elf.a(brk.elo)
 
-_034CD5A0589b86f7
+_0342D5A058dd7dc2
                     0x2794         0x6c
- _034CD5A0589b86f7
+ _0342D5A058dd7dc2
                     0x2794         0x6c build/default/production/_ext/1472/initialize.o
                     0x2794                  _TxBufferA
 
-_034CD6C0589b86f7
+_0342D6C058dd7dc2
                     0x2728         0x6c
- _034CD6C0589b86f7
+ _0342D6C058dd7dc2
                     0x2728         0x6c build/default/production/_ext/1472/initialize.o
                     0x2728                  _TxBufferB
 
-_034CD7E0589b86f7
+_0342D7E058dd7dc2
                     0x26bc         0x6c
- _034CD7E0589b86f7
+ _0342D7E058dd7dc2
                     0x26bc         0x6c build/default/production/_ext/1472/initialize.o
                     0x26bc                  _RxBufferA
 
-_034CD900589b86f7
+_0342D90058dd7dc2
                     0x2650         0x6c
- _034CD900589b86f7
+ _0342D90058dd7dc2
                     0x2650         0x6c build/default/production/_ext/1472/initialize.o
                     0x2650                  _RxBufferB
 
-_034CDB40589b86f7
+_0342DB4058dd7dc2
                     0x25c0         0x48
- _034CDB40589b86f7
+ _0342DB4058dd7dc2
                     0x25c0         0x48 build/default/production/_ext/1472/initialize.o
                     0x25c0                  _ADCBufferA
 
-_034CDD20589b86f7
+_0342DD2058dd7dc2
                     0x2500         0x48
- _034CDD20589b86f7
+ _0342DD2058dd7dc2
                     0x2500         0x48 build/default/production/_ext/1472/initialize.o
                     0x2500                  _ADCBufferB
 

@@ -1,7 +1,7 @@
 /*******************************************************
 Name: serial.c
-Date: 5/9/2016
-Authors: Qiandong Nie, Mark Price
+Date: 03/30/2017
+Authors: Mark Price
 Comments: Serial communication functions (SPI, UART)
 *******************************************************/
 #include "p33FJ64MC204.h" 	//Include p33FJ64MC202 header file
@@ -15,7 +15,6 @@ Comments: Serial communication functions (SPI, UART)
 extern int wait_flag;		// signals end of 1 millisecond sample period
 extern int spi1_flag;		//Flag for SPI transmission
 extern int spi2_flag;
-extern int hallErrorFlag;
 
 extern int enc1pos;
 extern unsigned int pwm1_duty_16bit;
@@ -40,22 +39,22 @@ extern unsigned int dataOut[RASPI_BUF_SIZE];
  * Inputs:
  *      short SPItx_data - the value of the data to be sent
  */
-short sendSpiMsgSlave(short SpiTxData)
-{
-    short SpiRxData = SPI1BUF;
-    spi1_flag = 0;
-    SPI1BUF = SpiTxData;
-    while(spi1_flag<1);		//use Spi flag to indicate buffer is full
-    return SpiRxData;
-}
-
-short sendSpiMsgMaster(short SpiTxData)
-{
-    spi1_flag = 0;
-    SPI1BUF = SpiTxData;
-    while(spi1_flag<1);		//use Spi flag to indicate buffer is full
-    return SPI1BUF;
-}
+//short sendSpiMsgSlave(short SpiTxData)
+//{
+//    short SpiRxData = SPI1BUF;
+//    spi1_flag = 0;
+//    SPI1BUF = SpiTxData;
+//    while(spi1_flag<1);		//use Spi flag to indicate buffer is full
+//    return SpiRxData;
+//}
+//
+//short sendSpiMsgMaster(short SpiTxData)
+//{
+//    spi1_flag = 0;
+//    SPI1BUF = SpiTxData;
+//    while(spi1_flag<1);		//use Spi flag to indicate buffer is full
+//    return SPI1BUF;
+//}
 
 int msgMarker;
 short enc1flag;
@@ -129,7 +128,7 @@ void processRXdata(void){
             }
             msgLength = 9;
         }
-        else if(msgMarker = 0xF0){
+        else if(msgMarker == 0xF0){
             msgEnd = 1;
             msgLength = 1;
         }

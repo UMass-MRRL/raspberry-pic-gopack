@@ -1,7 +1,7 @@
 /******************************************************************
 Name: main.c
 Author: Mark Price
-Date: 5/9/2016
+Date: 03/30/2017
 
 INCLUDE FILES: p33FJ64MC204.h, p33FJ64MC204.gld (Linker Script),
 functions.c, support.h
@@ -36,8 +36,8 @@ unsigned int pwm1_duty_16bit;
 // Encoder variables
 //int enc1_res = 4096; // # pulses x 4 (quadrature)
 //int enc2_res = 4096;
-float enc1_pos = 0;
-float enc2_pos = 0;
+//float enc1_pos = 0;
+//float enc2_pos = 0;
 extern short enc1flag;
 
 unsigned int dataIn[RASPI_BUF_SIZE];

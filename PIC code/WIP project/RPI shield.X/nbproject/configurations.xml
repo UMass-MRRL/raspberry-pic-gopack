@@ -20,7 +20,6 @@
       <itemPath>../main.c</itemPath>
       <itemPath>../sensors.c</itemPath>
       <itemPath>../serial.c</itemPath>
-      <itemPath>../MLX90363.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -65,6 +64,8 @@
           <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>

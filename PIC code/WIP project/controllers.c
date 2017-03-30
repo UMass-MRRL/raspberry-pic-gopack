@@ -1,6 +1,6 @@
 /*******************************************************
 Name: controllers.c
-Date: 5/9/2016
+Date: 03/30/2017
 Authors: Mark Price
 Comments: Low to high level controllers for the haptic mouse
 *******************************************************/
