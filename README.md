@@ -5,6 +5,6 @@ It houses a **Raspberry Pi Version 3 Model B**, 16 bit dsPIC33F microcontroller,
 
 Last updated: 12/04/2017
 
-For the most up-to-date Setup guide (Raspberry Pi Version 3 Model B with MATLAB Simulink version 2017b) please click: https://github.com/Mellondawg/raspberry-pic-gopack/tree/DirectoryFix/GoPack%20v2.0%20-%20Pi%203%20Simulink%20r2017b
+For the most up-to-date Setup guide (Raspberry Pi Version 3 Model B with MATLAB Simulink version 2017b) please click: https://github.com/UMass-MRRL/raspberry-pic-gopack/GoPack%20v2.0%20-%20Pi%203%20Simulink%20r2017b
 
-If you are using the Raspberry Pi 2 Model B with MATLAB Simulink version 2015b, then please click: https://github.com/Mellondawg/raspberry-pic-gopack/tree/DirectoryFix/GoPack%20v1.0%20-%20Pi%202%20Simulink%20r2015b
+If you are using the Raspberry Pi 2 Model B with MATLAB Simulink version 2015b, then please click: https://github.com/UMass-MRRL/raspberry-pic-gopack/GoPack%20v1.0%20-%20Pi%202%20Simulink%20r2015b
